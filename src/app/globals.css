@@ -1,0 +1,94 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+/* 移除媒体查询，确保服务器和客户端使用相同的主题 */
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* 添加Cherry Studio环境特定的样式 */
+.in-cherry-studio {
+  /* 在Cherry Studio环境中调整内边距和边距 */
+  padding-top: 0 !important;
+  margin: 0 !important;
+  max-width: 100% !important;
+}
+
+.in-cherry-studio .mt-8,
+.in-cherry-studio .mt-6 {
+  /* 减少在Cherry Studio中的顶部边距 */
+  margin-top: 0.5rem !important;
+}
+
+.in-cherry-studio .p-4 {
+  /* 减少内边距 */
+  padding: 0.5rem !important;
+}
+
+/* 在Cherry Studio中隐藏某些元素，如可能需要的 */
+.in-cherry-studio .footer-credits {
+  display: none !important;
+}
+
+/* 确保内容在嵌入环境中不会溢出 */
+.in-cherry-studio .container {
+  overflow: hidden !important;
+}
+
+/* 文章润色差异标记样式 */
+.diff-add {
+  background-color: #e6ffec;
+  color: #24292f;
+  text-decoration: none;
+  padding: 2px 0;
+  border-radius: 2px;
+  display: inline-block;
+  border-bottom: 1px solid #34d058;
+  margin: 2px 0;
+}
+
+.diff-del {
+  background-color: #ffebe9;
+  color: #24292f;
+  text-decoration: line-through;
+  padding: 2px 0;
+  border-radius: 2px;
+  display: inline-block;
+  border-bottom: 1px solid #ff7b72;
+  margin: 2px 0;
+}
+
+.diff-container {
+  line-height: 1.6;
+  font-size: 1rem;
+  white-space: pre-wrap;
+}
+
+/* 添加模型下拉框的脉冲动画 */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(66, 153, 225, 0.5);
+  }
+  70% {
+    box-shadow: 0 0 0 5px rgba(66, 153, 225, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(66, 153, 225, 0);
+  }
+}
+
+.pulse-animation {
+  animation: pulse 1s ease-in-out;
+}
